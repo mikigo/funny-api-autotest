@@ -1,0 +1,17 @@
+config:
+    name: "demo_1"
+    variables:
+        name: mikigo
+    verify: False
+
+teststeps:
+-
+    name: get with params
+    request:
+        method: GET
+        url: http://10.8.7.199:5000/items/
+        params:
+            name: mikigo
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.name", "mikigo"]
